@@ -17,7 +17,7 @@ class Fane1 extends Fane{
   b2.display();
   b3.display();
   fill(255);
-     text("Nedtrapning",400,200);
+     text("Nedtrapning",400,220);
 
   
  }

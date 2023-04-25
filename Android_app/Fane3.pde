@@ -17,7 +17,7 @@ class Fane3 extends Fane{
   b2.display();
   b3.display();
   fill(255);
-       text("Tips og Tricks",400,200);
+       text("Tips og Tricks",400,220);
        
        
 

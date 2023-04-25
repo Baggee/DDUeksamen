@@ -17,7 +17,7 @@ class Fane2 extends Fane{
   b2.display();
   b3.display();
   fill(255);
-       text("Cold Turkey",400,200);
+       text("Cold Turkey",400,220);
 
  }
 
