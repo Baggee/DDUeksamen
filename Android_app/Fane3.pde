@@ -36,6 +36,7 @@ class Fane3 extends Fane{
  }
 
 void trykMus(){
+  t1.trykMus();
    if(b1.trykMus()){
      vistfane = f1;
    }
