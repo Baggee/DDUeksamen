@@ -1,5 +1,5 @@
 class Fane2 extends Fane{
-  Button b1, b2, b3;
+  Button b1, b2, b3, tf;
  
  Fane2(){
    
