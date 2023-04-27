@@ -3,9 +3,9 @@ public class TEXTBOX {
    public int TEXTSIZE = 24;
    
    // COLORS
-   public color Background = color(2, 0, 188);
+   public color Background = color(140, 140, 140);
    public color Foreground = color(0, 0, 0);
-   public color BackgroundSelected = color(125, 124, 255);
+   public color BackgroundSelected = color(160, 160, 160);
    public color Border = color(30, 30, 30);
    
    public boolean BorderEnable = false;
@@ -17,6 +17,7 @@ public class TEXTBOX {
    private boolean selected = false;
    
    TEXTBOX() {
+      // CREATE OBJECT DEFAULT TEXTBOX
    }
    
    TEXTBOX(int x, int y, int w, int h) {
@@ -24,30 +25,31 @@ public class TEXTBOX {
    }
    
    void DRAW() {
+     //rect(0,0,1000,1000);
       // DRAWING THE BACKGROUND
       if (selected) {
-         p.fill(BackgroundSelected);
+         fill(BackgroundSelected);
       } else {
-         p.fill(Background);
+         fill(Background);
       }
       
       if (BorderEnable) {
-         p.strokeWeight(BorderWeight);
-         p.stroke(Border);
+         strokeWeight(BorderWeight);
+         stroke(Border);
       } else {
-         p.noStroke();
+         noStroke();
       }
       
-      p.rect(X, Y, W, H);
+      rect(X, Y, W, H);
       
-      p.fill(Foreground);
-      p.textSize(TEXTSIZE);
-      //+ (textWidth("a") / 2)
-      p.textAlign(LEFT);
-      p.text(Text, X , Y+H/2 );
+      // DRAWING THE TEXT ITSELF
+      fill(Foreground);
+      textSize(TEXTSIZE);
+      text(Text, X + (textWidth("a") / 2), Y + TEXTSIZE);
    }
    
-
+   // IF THE KEYCODE IS ENTER RETURN 1
+   // ELSE RETURN 0
    boolean KEYPRESSED(char KEY, int KEYCODE) {
       if (selected) {
          if (KEYCODE == (int)BACKSPACE) {
@@ -58,6 +60,7 @@ public class TEXTBOX {
          } else if (KEYCODE == (int)ENTER) {
             return true;
          } else {
+            // CHECK IF THE KEY IS A LETTER OR A NUMBER
             boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Z');
             boolean isKeySmallLetter = (KEY >= 'a' && KEY <= 'z');
             boolean isKeyNumber = (KEY >= '0' && KEY <= '9');
@@ -72,6 +75,7 @@ public class TEXTBOX {
    }
    
    private void addText(char text) {
+      // IF THE TEXT WIDHT IS IN BOUNDARIES OF THE TEXTBOX
       if (textWidth(Text + text) < W) {
          Text += text;
          TextLength++;
@@ -85,6 +89,8 @@ public class TEXTBOX {
       }
    }
    
+   // FUNCTION FOR TESTING IS THE POINT
+   // OVER THE TEXTBOX
    private boolean overBox(int x, int y) {
       if (x >= X && x <= X + W) {
          if (y >= Y && y <= Y + H) {

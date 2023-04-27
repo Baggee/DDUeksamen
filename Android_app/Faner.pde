@@ -4,4 +4,6 @@ class Fane{
    }
    void trykMus(){
    }
+   void trykKey(){
+   }
 }
