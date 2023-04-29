@@ -22,5 +22,5 @@ vistfane.trykMus();
 }
 
 void keyPressed() {
-
+vistfane.trykKey();
 }
